@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Tesseract from 'tesseract.js';
+
 function ImageOCR() {
   /* TODO: Choose what we want the user to be able to set */
   /* TODO: add spacing as an option */
@@ -9,10 +10,25 @@ function ImageOCR() {
   const [fontSize, setFontSize] = useState('16px');
   const [fontFamily, setFontFamily] = useState('Arial'); // TODO: change if we want to
   const [ocrOutput, setOcrOutput] = useState(null);
- 
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
   /* handlers below */
   function handleImageChange(event) {
-    setImage(URL.createObjectURL(event.target.files[0]));
+    const file = event.target.files[0];
+    setFile(file)
+    const fileType = file.type.split("/").pop(); // "some-page"
+    console.log(fileType);
+    if (fileType == 'pdf') {
+      // alert('ERROR! Please Select PDF Instead.');
+      // setIsToggled(false)
+      // 
+    }
+    else {
+      setImage(URL.createObjectURL(event.target.files[0]));
+    }
   }
 
   function handleTextColorChange(event) {
@@ -34,6 +50,7 @@ function ImageOCR() {
     setOcrOutput(event);
   }
   function handleOcrConversion(image) {
+
     Tesseract.recognize(image)
       .then((result) => {
         console.log('result using ocr:', result.data.text);
@@ -53,12 +70,17 @@ function ImageOCR() {
 
   return (
     <div>
+      <div>
+
+      </div>
       <form>
         <label>
           Upload Image:&nbsp;
           <input type="file" onChange={handleImageChange} />
         </label>
         <br />
+        <div>
+        </div>
         <label>
           Text Color:&nbsp;
           <input type="color" value={textColor} onChange={handleTextColorChange} />

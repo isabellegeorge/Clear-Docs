@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import ImageOCR from './front-end/ImageOCR';
+import ImagePDFOCR from './front-end/ImagePdfOCR';
 
 function App() {
   var see = 'block';
@@ -12,12 +12,15 @@ function App() {
         </h1>
         {/* TODO: make logo and put here instead of react logo */}
         <img src={logo} className="App-logo" alt="logo" />
-        <ImageOCR/>
+        <ImagePDFOCR/>
 
+        {/* <ImageOCR/> */}
+{/* <Test/> */}
         {/* TODO: implement button for if the user is uploading an image or a pdf */}
-        <button type="button" onClick={(
-        <ImageOCR/>)}> Image
-                </button>
+        {/* <PDFOCR/> */}
+        {/* <button type="button" onClick={(
+        <PDFOCR/>)}> Image
+                </button> */}
         {/* TODO: have a checker to see if user input pdf or image and use pcrmypdf for pdfs */}
         {/* TODO: pdf implementation */}
 

@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
+
 :root {
   /* TODO: add/change colors to what we agree on */
   --primary-color: #000000; 
   --secondary-color: #ece7e7; 
-  --highlight-color: #ffdd00;
+  --highlight-color: #ceb40c;
   --accent-color: #06b9f5; 
   --header-color: #174D6B;
   --font-family: Arial, sans-serif;
@@ -62,3 +64,8 @@ button:hover {
   white-space: pre-wrap;
 }
 
+
+.pdf-ocr-viewer-container {
+  display: flex;
+  justify-content: space-between
+}
