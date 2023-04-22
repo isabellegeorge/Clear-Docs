@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Tesseract from 'tesseract.js';
+import "@fontsource/atkinson-hyperlegible";
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
 function ImageOCR() {
   /* TODO: Choose what we want the user to be able to set */
   /* TODO: add spacing as an option */
@@ -37,7 +39,7 @@ function ImageOCR() {
     Tesseract.recognize(image)
       .then((result) => {
         console.log('result using ocr:', result.data.text);
-        handleOcrOutput(<h3>{result.data.text}</h3>); // fix to be not h3 but something smaller
+        handleOcrOutput(<p>{result.data.text}</p>); // fix to be not h3 but something smaller
       })
       .catch((error) => {
         console.error('error using ocr:', error);
@@ -82,6 +84,7 @@ function ImageOCR() {
             <option value="Arial">Arial</option>
             <option value="Sans-Serif">Sans Serif</option>
             <option value="Times New Roman">Times New Roman</option>
+            <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
           </select>
         </label>
         <br />
