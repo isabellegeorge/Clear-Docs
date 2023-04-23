@@ -13,7 +13,7 @@ function Home() {
       <h2>
         Home
       </h2>
-      <img src={fulllogo} className="App-fulllogo" alt="logo with letter c and letter d" />
+      <img src={fulllogo} className="App-fulllogo" alt="logo with words clear docs" />
 
       {/* <hr style={{backgroundColor:'#004AAD', height: '100px', opacity: '.1', margin: '0px', position: 'absolute;' }} alt="decorative line"/> */}
       
