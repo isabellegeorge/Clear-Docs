@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from '../public/logo.png';
 import './App.css';
 import ImagePDFOCR from './front-end/ImagePdfOCR';
 
@@ -11,7 +11,7 @@ function App() {
           Clear Docs
         </h1>
         {/* TODO: make logo and put here instead of react logo */}
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={'./logo.png'} className="App-logo" alt="logo with letter c and letter d" />
         <ImagePDFOCR/>
 
         {/* <ImageOCR/> */}
