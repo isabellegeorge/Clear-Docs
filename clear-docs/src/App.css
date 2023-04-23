@@ -11,21 +11,39 @@
 }
 
 .App {
-  text-align: left;
+  /* text-align: left; */
+  margin-left:5%;
+  margin-top: 3%;
+  margin-right:5%;
+
+}
+.App-inclusion {
+  height: 150px;
 }
 
 .App-logo {
-  height: 300px;
+  height: 100px;
+}
+
+.App-fulllogo {
+  height: 400px;
+  text-align: 'center';
+  justify-items: 'center';
+  /* margin-left: 10%;
+  margin-right: 20%; */
+  margin-bottom: -200px;
+
 }
 
 .App-header {
-  background-color: var(--secondary-color); 
+  /* background-color: var(--secondary-color);  */
   color: var(--header-color); 
   font-size: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 body {
@@ -35,6 +53,9 @@ body {
   font-size: 16px;
 }
 
+.elements {
+  margin-left: '1rem';
+}
 label {
   color: var(--primary-color);
   font-family: var(--font-family);
@@ -68,4 +89,23 @@ button:hover {
 .pdf-ocr-viewer-container {
   display: flex;
   justify-content: space-between
+}
+
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  color: 'blue';
+  z-index: 1020;
+}
+
+.box {
+  height: 80px;
+  width: 100%;
+  background-color: red;
+  border: 3px green;
+  background-color: blue;
+  position: sticky;
+  top: 0;
+  right:0;
 }

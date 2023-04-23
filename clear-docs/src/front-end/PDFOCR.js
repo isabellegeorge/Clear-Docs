@@ -8,12 +8,19 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 const PDFOCR = () => {
   const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1); // default page is 1 if we just want to do one long thing of text we have to change that
+  const [pageNumber, setPageNumber] = useState(0); // default page is 0 if we just want to do one long thing of text we have to change that
   const [pdfText, setPdfText] = useState("");
   const [file, setFile] = useState(null);
-
+  const [image, setImage] = useState(null);
+  const [textColor, setTextColor] = useState('black');
+  const [backgroundColor, setBackgroundColor] = useState('white');
+  const [fontSize, setFontSize] = useState('16px');
+  const [fontFamily, setFontFamily] = useState('Arial'); // TODO: change if we want to
+  const [ocrOutput, setOcrOutput] = useState(null);
+  
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
+    console.log(file)
   };
 
   const handlePdfLoad = async (pdf) => {
@@ -48,13 +55,109 @@ const PDFOCR = () => {
     setNumPages(numPages);
     setPageNumber(1);
   };
+  function handleTextColorChange(event) {
+    setTextColor(event.target.value);
+  }
+  function handleBackgroundColorChange(event) {
+    setBackgroundColor(event.target.value);
+  }
+  function handleFontSizeChange(event) {
+    setFontSize(event.target.value);
+  }
 
+  function handleFontFamilyChange(event) {
+    setFontFamily(event.target.value);
+  }
+function handleOcrButtonClick(event){
+  <div>
+  {file && (
+    <Document
+      file={file}
+      onLoadSuccess={handleDocumentLoadSuccess}
+      onLoadError={handlePdfError}
+      onLoadComplete={handlePdfLoad}
+      options={{
+        cMapUrl: "cmaps/",
+        cMapPacked: true,
+        normalizeWhitespace: 'true'
+      }}
+    >
+      <Page
+        canvasBackground="white" // fix this so no preview shows
+        pageNumber={pageNumber}
+        width={1000}
+      />
+    </Document>
+  )}
+      {pageNumber != 0 ?
+      <div>
+    <p>
+      Page {pageNumber} of {numPages}
+    </p>
+    <button
+      disabled={pageNumber <= 1}
+      onClick={() => setPageNumber(pageNumber - 1)}
+    >
+      Previous
+    </button>
+    <button
+      disabled={pageNumber >= numPages}
+      onClick={() => setPageNumber(pageNumber + 1)}
+    >
+      Next
+    </button>
+  </div> : 
+  <div>
 
+  </div>}
+</div>
+}
   return (
     <div>
-      <div>
-        <input type="file" onChange={handleFileChange} />
-        {file && (
+          <form>
+        <label>
+          Upload Image:&nbsp;
+          {/* <input type="file" onChange={handleImageChange} />
+           */}
+           <input type="file" onChange={handleFileChange} />
+        </label>
+        <br />
+        <div>
+        </div>
+        <label>
+          Text Color:&nbsp;
+          <input type="color" value={textColor} onChange={handleTextColorChange} />
+        </label>
+        <br />
+        <label>
+          Background Color:&nbsp;
+          <input type="color" value={backgroundColor} onChange={handleBackgroundColorChange} />
+        </label>
+        <br />
+        <label>
+          Font Size:&nbsp;
+          <input type="range" min="10" max="28" value={fontSize} onChange={handleFontSizeChange} />
+          {fontSize}
+        </label>
+        <br />
+        <label>
+          Font Family:&nbsp;
+          <select value={fontFamily} onChange={handleFontFamilyChange}>
+            {/* TODO: add dyslexia fonts */}
+            <option value="Arial">Arial</option>
+            <option value="Sans-Serif">Sans Serif</option>
+            <option value="Times New Roman">Times New Roman</option>
+          </select>
+        </label>
+        <br />
+        {/* TODO: fix so that pdf work too */}
+        <button type="button" onClick={handleOcrButtonClick}>
+          Change PDF to Text
+        </button>
+      </form>
+       <div> 
+        {/* {<input type="file" onChange={handleFileChange} /> */}
+         {file && (
           <Document
             file={file}
             onLoadSuccess={handleDocumentLoadSuccess}
@@ -67,13 +170,14 @@ const PDFOCR = () => {
             }}
           >
             <Page
-              canvasBackground="red" // fix this so no preview shows
+              canvasBackground="white" // fix this so no preview shows
               pageNumber={pageNumber}
               width={1000}
             />
           </Document>
         )}
-        <div>
+            {pageNumber != 0 ?
+            <div>
           <p>
             Page {pageNumber} of {numPages}
           </p>
@@ -89,8 +193,13 @@ const PDFOCR = () => {
           >
             Next
           </button>
-        </div>
-      </div>
+        </div> : 
+        <div>
+
+        </div>}
+      </div> 
+
+
       <div className="ocr-text-container">
         {pdfText && <div className="ocr-text">{pdfText}</div>}
         <div className="ocr-text-container">
