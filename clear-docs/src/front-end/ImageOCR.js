@@ -104,6 +104,8 @@ function ImageOCR() {
             <option value="Arial">Arial</option>
             <option value="Sans-Serif">Sans Serif</option>
             <option value="Times New Roman">Times New Roman</option>
+            <option value="Lexend">Lexend</option>
+            <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
           </select>
         </label>
         <br />
@@ -114,7 +116,7 @@ function ImageOCR() {
       </form>
       <br />
       {ocrOutput && (
-        <div style={{ color: textColor, backgroundColor, fontSize, fontFamily }}>
+        <div style={{ color: textColor, backgroundColor, fontSize: `${fontSize}px`, fontFamily }}>
           {ocrOutput}
         </div>
       )}
