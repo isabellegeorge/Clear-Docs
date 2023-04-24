@@ -147,7 +147,6 @@ const PDFOCR = () => {
             onChange={handleFontFamilyChange}
             className="rounded-md"
           >
-            {/* TODO: add dyslexia fonts */}
             <option value="Arial">Arial</option>
             <option value="Sans-Serif">Sans Serif</option>
             <option value="Times New Roman">Times New Roman</option>
