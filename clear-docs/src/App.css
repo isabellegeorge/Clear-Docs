@@ -8,6 +8,7 @@
   --accent-color: #06b9f5; 
   --header-color: #174D6B;
   --font-family: Arial, sans-serif;
+  --line-height: 1;
 }
 
 .App {
@@ -49,6 +50,7 @@
 body {
   background-color: var(--secondary-color);
   color: var(--primary-color);
+  line-height: var(--line-height);
 }
 
 .elements {

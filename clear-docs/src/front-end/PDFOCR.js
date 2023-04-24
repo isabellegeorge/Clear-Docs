@@ -10,6 +10,7 @@ const PDFOCR = () => {
   const [textColor, setTextColor] = useState("black");
   const [backgroundColor, setBackgroundColor] = useState("white");
   const [fontSize, setFontSize] = useState("16px");
+  const [lineHeight, setLineHeight] = useState("1");
   const [fontFamily, setFontFamily] = useState("Arial");
 
   const handleFileChange = (e) => {
@@ -32,6 +33,9 @@ const PDFOCR = () => {
 
   function handleFontFamilyChange(event) {
     setFontFamily(event.target.value);
+  }
+  function handleLineHeightChange(event) {
+    setLineHeight(event.target.value);
   }
 
   const extractPdfText = async (pdf) => {
@@ -115,6 +119,24 @@ const PDFOCR = () => {
           />
           <span className="ml-2">{fontSize}</span>
         </div>
+        <div className='flex items-center'>
+            <label htmlFor="line-height-input">
+            Line Height:&nbsp;
+            </label>
+            <input
+              type="range"
+              id="line-height-input"
+              min="1"
+              max="4"
+              value={lineHeight}
+              onChange={handleLineHeightChange}
+              aria-describedby="line-height-description"
+            />
+            <span className="ml-2">{lineHeight}</span>
+        </div>
+        <p id="line-height-description" className="sr-only">
+          Use this slider to adjust the line height of the converted image text.
+        </p>
         <div className="flex items-center">
           <label htmlFor="font-family" className="mr-2">
             Font Family:&nbsp;
@@ -152,6 +174,7 @@ const PDFOCR = () => {
               backgroundColor: backgroundColor,
               fontSize: `${fontSize}px`,
               fontFamily: fontFamily,
+              lineHeight
             }}
             role="textbox"
             tabIndex="0"
