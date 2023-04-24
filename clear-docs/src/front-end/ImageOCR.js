@@ -1,11 +1,32 @@
 import React, { useState } from "react";
 import Tesseract from "tesseract.js";
-
-function ImageOCR() {
+import { ColorPicker } from 'react-rainbow-components';
+const colors = [
+  '#F44336', // red
+  '#E91E63', // pink
+  '#9C27B0', // purple
+  '#673AB7', // deep purple
+  '#3F51B5', // indigo
+  '#2196F3', // blue
+  '#03A9F4', // light blue
+  '#00BCD4', // cyan
+  '#009688', // teal
+  '#4CAF50', // green
+  '#8BC34A', // light green
+  '#CDDC39', // lime
+  '#FFEB3B', // yellow
+  '#FFC107', // amber
+  '#FF9800', // orange
+  '#FF5722', // deep orange
+  '#795548', // brown
+  '#9E9E9E', // grey
+  '#607D8B', // blue grey
+];
+function ImageOCR(props) {
   /* TODO: Choose what we want the user to be able to set */
   /* TODO: add spacing as an option */
   const [image, setImage] = useState(null);
-  const [textColor, setTextColor] = useState("black");
+  const [textColor, setTextColor] = useState(colors[0]);
   const [backgroundColor, setBackgroundColor] = useState("white");
   const [fontSize, setFontSize] = useState("16px");
   const [fontFamily, setFontFamily] = useState("Arial"); // TODO: change if we want to
@@ -31,8 +52,9 @@ function ImageOCR() {
     }
   }
 
-  function handleTextColorChange(event) {
-    setTextColor(event.target.value);
+  const handleTextColorChange = (color) => {
+    console.log(color);
+    setTextColor(color);
   }
 
   function handleBackgroundColorChange(event) {
@@ -63,10 +85,13 @@ function ImageOCR() {
       });
   }
   function handleOcrButtonClick() {
+    
     if (image) {
+      alert("Converting your Image to Text! Please wait...")
+
       handleOcrConversion(image);
     } else {
-      console.error("Error: Please select an image.");
+      alert("Error: Please select an image.");
     }
   }
 
@@ -85,20 +110,33 @@ function ImageOCR() {
             onChange={handleImageChange}
             accept="image/*"
           />
+  
+          <style>
+            {`
+          .palette-container {
+            text-align: center;
+          }
+
+          .color-palette {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+          }
+
+          .color-picker {
+            width: 200px;
+            margin: auto;
+          }
+        `}
+          </style>
         </div>
         <div className="flex items-center">
-          <label htmlFor="text-color-input" className="mr-2 font-sans text-lg">
+          <label htmlFor="<ColorPaletteDyslexia/> "className="mr-2 font-sans text-lg">
             Text Color:&nbsp;
           </label>
-          <input
-            type="color"
-            id="text-color-input"
-            value={textColor}
-            onChange={handleTextColorChange}
-            className="rounded-md"
-            aria-describedby="text-color-description"
-          />
-        </div>
+          <ColorPicker value={textColor} onChange={setTextColor} />
+        </div> 
         <p id="text-color-description" className="sr-only">
           Use this color picker to choose the text color for the converted image
           text.
@@ -107,14 +145,12 @@ function ImageOCR() {
           <label htmlFor="background-color-input" className="mr-2 font-sans text-lg">
             Background Color:&nbsp;
           </label>
-          <input
-            type="color"
-            id="background-color-input"
-            value={backgroundColor}
-            onChange={handleBackgroundColorChange}
-            className="rounded-md"
-            aria-describedby="background-color-description"
-          />
+          <div>
+      {/* <input type="text" value={textColor} onChange={(e) => setTextColor(e.target.value)} /> */}
+
+    </div>
+    <ColorPicker value={backgroundColor} onChange={setBackgroundColor} />
+
         </div>
         <p id="background-color-description" className="sr-only">
           Use this color picker to choose the background color for the converted
@@ -182,11 +218,12 @@ function ImageOCR() {
         <button
           type="button"
           onClick={handleOcrButtonClick}
-          className="py-2 px-4 bg-[#000000] text-white font-semibold rounded-md"
+          className="py-5 px-25 bg-[#000000] text-white font-semibold rounded-md"
           aria-describedby="ocr-button-description"
         >
           Change Image to Text
         </button>
+        <br/>
         <p id="ocr-button-description" className="sr-only">
           Press this button to convert the uploaded image to text.
         </p>
@@ -198,8 +235,8 @@ function ImageOCR() {
             className={`ocr-text p-4 my-6 border-2 border-gray-200 rounded-md shadow-lg
               ${textColor === "#ffffff" ? "bg-gray-800" : "bg-white"}`}
             style={{
-              color: textColor,
-              backgroundColor: backgroundColor,
+              color: textColor.hex,
+              backgroundColor: backgroundColor.hex,
               fontSize: `${fontSize}px`,
               fontFamily: fontFamily,
               lineHeight,

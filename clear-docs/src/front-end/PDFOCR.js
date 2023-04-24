@@ -1,7 +1,28 @@
 import React, { useState } from "react";
 import { pdfjs } from "react-pdf";
 import "./../App.css";
-
+import { ColorPicker } from 'react-rainbow-components';
+const colors = [
+  '#F44336', // red
+  '#E91E63', // pink
+  '#9C27B0', // purple
+  '#673AB7', // deep purple
+  '#3F51B5', // indigo
+  '#2196F3', // blue
+  '#03A9F4', // light blue
+  '#00BCD4', // cyan
+  '#009688', // teal
+  '#4CAF50', // green
+  '#8BC34A', // light green
+  '#CDDC39', // lime
+  '#FFEB3B', // yellow
+  '#FFC107', // amber
+  '#FF9800', // orange
+  '#FF5722', // deep orange
+  '#795548', // brown
+  '#9E9E9E', // grey
+  '#607D8B', // blue grey
+];
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const PDFOCR = () => {
@@ -59,8 +80,13 @@ const PDFOCR = () => {
         cMapPacked: true,
       }).promise;
       const pdfText = await extractPdfText(pdf);
+      alert("Converting your PDF to Text! Please wait...")
       setPdfText(pdfText);
       console.log(pdfText);
+    }
+    else{
+      alert("Error: Please select a PDF.");
+
     }
   };
 
@@ -79,30 +105,53 @@ const PDFOCR = () => {
             onChange={handleFileChange}
             accept="application/pdf"
           />
+            <style>
+            {`
+          .palette-container {
+            text-align: center;
+          }
+
+          .color-palette {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+          }
+
+          .color-picker {
+            width: 200px;
+            margin: auto;
+          }
+        `}
+          </style>
         </div>
         <div className="flex items-center">
           <label htmlFor="text-color" className="mr-2 font-sans text-lg">
             Text Color:&nbsp;
           </label>
-          <input
+          {/* <input
             id="text-color"
             type="color"
             value={textColor}
             onChange={handleTextColorChange}
             className="rounded-md"
-          />
+          /> */}
+          <ColorPicker value={textColor} onChange={setTextColor} />
+
         </div>
         <div className="flex items-center">
           <label htmlFor="background-color" className="mr-2 font-sans text-lg">
             Background Color:&nbsp;
           </label>
-          <input
+          {/* <input
             id="background-color"
             type="color"
             value={backgroundColor}
             onChange={handleBackgroundColorChange}
             className="rounded-md"
-          />
+          /> */}
+          <ColorPicker value={backgroundColor} onChange={setBackgroundColor} />
+
         </div>
         <div className="flex items-center">
           <label htmlFor="font-size" className="mr-2 font-sans text-lg">
@@ -169,8 +218,8 @@ const PDFOCR = () => {
             className={`ocr-text p-4 my-6 border-2 border-gray-200 rounded-md shadow-lg
               ${textColor === '#ffffff' ? 'bg-gray-800' : 'bg-white'}`}
             style={{
-              color: textColor,
-              backgroundColor: backgroundColor,
+              color: textColor.hex,
+              backgroundColor: backgroundColor.hex,
               fontSize: `${fontSize}px`,
               fontFamily: fontFamily,
               lineHeight

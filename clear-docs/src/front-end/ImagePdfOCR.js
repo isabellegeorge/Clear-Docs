@@ -3,7 +3,7 @@ import PDFOCR from './PDFOCR';
 import ImageOCR from './ImageOCR';
 
 function ImagePDFOCR() {
-  const [toggleOn, setToggleOn] = useState(false);
+  const [toggleOn, setToggleOn] = useState(true);
 
   const handleToggleClick = () => {
     setToggleOn(!toggleOn);
@@ -18,8 +18,8 @@ function ImagePDFOCR() {
         <p id="toggle-button-instructions">
           Please tap the button below to toggle between choices (to upload an image or a PDF).
         </p>
-        <button className='h-auto w-min' onClick={handleToggleClick} aria-expanded={toggleOn} aria-controls={toggleOn ? "image-ocr" : "pdf-ocr"}>
-          {toggleOn ? "Image" : "PDF"}
+        <button className='h-auto w-min+10' onClick={handleToggleClick} aria-expanded={toggleOn} aria-controls={toggleOn ? "image-ocr" : "pdf-ocr"}>
+          {toggleOn ? "Upload Image" : "Upload PDF"}
         </button>
         {toggleOn ? <ImageOCR id="image-ocr" /> : <PDFOCR id="pdf-ocr" />}
       </div>

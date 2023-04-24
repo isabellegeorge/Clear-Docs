@@ -36,6 +36,9 @@
 
 }
 
+.text{
+  font-style: normal;   
+}
 .App-header {
   /* background-color: var(--secondary-color);  */
   color: var(--header-color); 
