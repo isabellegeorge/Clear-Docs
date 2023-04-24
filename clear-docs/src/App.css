@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lexend|Atkinson+Hyperlegible");
+@import url("https://fonts.googleapis.com/css?family=Lexend:regular,bold,bolditalic|Atkinson+Hyperlegible:bold,bolditalic");
 
 :root {
   /* TODO: add/change colors to what we agree on */
@@ -50,8 +50,6 @@
 body {
   background-color: var(--secondary-color);
   color: var(--primary-color);
-  font-family: var(--font-family);
-  font-size: 16px;
   line-height: var(--line-height);
 }
 
