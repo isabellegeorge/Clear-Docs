@@ -9,6 +9,7 @@ function ImageOCR() {
   const [backgroundColor, setBackgroundColor] = useState('white');
   const [fontSize, setFontSize] = useState('16px');
   const [fontFamily, setFontFamily] = useState('Arial'); // TODO: change if we want to
+  const [lineHeight, setLineHeight] = useState('1');
   const [ocrOutput, setOcrOutput] = useState(null);
   const [file, setFile] = useState(null);
 
@@ -45,6 +46,9 @@ function ImageOCR() {
 
   function handleFontFamilyChange(event) {
     setFontFamily(event.target.value);
+  }
+  function handleLineHeightChange(event) {
+    setLineHeight(event.target.value)
   }
   function handleOcrOutput(event) {
     setOcrOutput(event);
@@ -98,6 +102,12 @@ function ImageOCR() {
         </label>
         <br />
         <label>
+          Line Height:&nbsp;
+          <input type="range" min="1" max="4" value={lineHeight} onChange={handleLineHeightChange} />
+          {lineHeight}
+        </label>
+        <br />
+        <label>
           Font Family:&nbsp;
           <select value={fontFamily} onChange={handleFontFamilyChange}>
             {/* TODO: add dyslexia fonts */}
@@ -116,7 +126,7 @@ function ImageOCR() {
       </form>
       <br />
       {ocrOutput && (
-        <div style={{ color: textColor, backgroundColor, fontSize: `${fontSize}px`, fontFamily }}>
+        <div style={{ color: textColor, backgroundColor, fontSize: `${fontSize}px`, fontFamily, lineHeight }}>
           {ocrOutput}
         </div>
       )}

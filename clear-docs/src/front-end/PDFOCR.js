@@ -10,6 +10,7 @@ const PDFOCR = () => {
   const [textColor, setTextColor] = useState("black");
   const [backgroundColor, setBackgroundColor] = useState("white");
   const [fontSize, setFontSize] = useState("16px");
+  const [lineHeight, setLineHeight] = useState("1");
   const [fontFamily, setFontFamily] = useState("Arial");
 
   const handleFileChange = (e) => {
@@ -28,6 +29,9 @@ const PDFOCR = () => {
   function handleFontSizeChange(event) {
     let font_size = `${event.target.value}px`
     setFontSize(event.target.value);
+  }
+  function handleLineHeightChange(event) {
+    setLineHeight(event.target.value);
   }
 
   function handleFontFamilyChange(event) {
@@ -102,6 +106,18 @@ const PDFOCR = () => {
         </label>
         <br />
         <label>
+          Line Height:&nbsp;
+          <input
+            type="range"
+            min="1"
+            max="4"
+            value={lineHeight}
+            onChange={handleLineHeightChange}
+          />
+          {lineHeight}
+        </label>
+        <br />
+        <label>
           Font Family:&nbsp;
           <select value={fontFamily} onChange={handleFontFamilyChange}>
             {/* TODO: add dyslexia fonts */}
@@ -128,6 +144,7 @@ const PDFOCR = () => {
               backgroundColor: backgroundColor,
               fontSize: `${fontSize}px`,
               fontFamily: fontFamily,
+              lineHeight: lineHeight,
             }}
           >
             {pdfText}
