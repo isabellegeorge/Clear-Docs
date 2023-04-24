@@ -10,7 +10,7 @@ function ImagePDFOCR() {
   };
 
   return (
-    <div className="flex w-screen justify-left items-center h-auto">
+    <div className="flex w-auto justify-left items-center h-auto">
       <div className='flex flex-col gap-1 p-8'>
         <h3 className='text-lg font-bold leading-7' id="get-started-heading">
           Get Started

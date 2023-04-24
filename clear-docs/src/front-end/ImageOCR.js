@@ -75,19 +75,19 @@ function ImageOCR() {
       <h3 id="image-ocr-heading">Image OCR</h3>
       <form className="space-y-4">
         <div className="flex items-center">
-          <label htmlFor="image-upload-input" className="mr-2">
+          <label htmlFor="image-upload-input" className="mr-2 font-sans text-lg">
             Upload Image:&nbsp;
           </label>
           <input
             type="file"
             id="image-upload-input"
-            className="rounded-md"
+            className="rounded-md border"
             onChange={handleImageChange}
             accept="image/*"
           />
         </div>
         <div className="flex items-center">
-          <label htmlFor="text-color-input" className="mr-2">
+          <label htmlFor="text-color-input" className="mr-2 font-sans text-lg">
             Text Color:&nbsp;
           </label>
           <input
@@ -104,7 +104,7 @@ function ImageOCR() {
           text.
         </p>
         <div className="flex items-center">
-          <label htmlFor="background-color-input" className="mr-2">
+          <label htmlFor="background-color-input" className="mr-2 font-sans text-lg">
             Background Color:&nbsp;
           </label>
           <input
@@ -121,7 +121,7 @@ function ImageOCR() {
           image text.
         </p>
         <div className="flex items-center">
-          <label htmlFor="font-size-input" className="mr-2">
+          <label htmlFor="font-size-input" className="mr-2 font-sans text-lg">
             Font Size:&nbsp;
           </label>
           <input
@@ -140,7 +140,9 @@ function ImageOCR() {
           Use this slider to adjust the font size of the converted image text.
         </p>
         <div className="flex items-center">
-          <label htmlFor="line-height-input">Line Height:&nbsp;</label>
+          <label htmlFor="line-height-input" className="mr-2 font-sans text-lg">
+            Line Height:&nbsp;
+          </label>
           <input
             type="range"
             id="line-height-input"
@@ -156,7 +158,7 @@ function ImageOCR() {
           Use this slider to adjust the line height of the converted image text.
         </p>
         <div className="flex items-center">
-          <label htmlFor="font-family-select" className="mr-2">
+          <label htmlFor="font-family-select" className="mr-2 font-sans text-lg">
             Font Family:&nbsp;
           </label>
           <select

@@ -65,23 +65,23 @@ const PDFOCR = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col w-auto">
       <h3 id="pdf-ocr-heading">PDF OCR</h3>
       <form className="space-y-4">
         <div className="flex items-center">
-          <label htmlFor="pdf-upload" className="mr-2">
+          <label htmlFor="pdf-upload" className="mr-2 font-sans text-lg">
             Upload PDF:&nbsp;
           </label>
           <input
             id="pdf-upload"
             type="file"
-            className="rounded-md"
+            className="rounded-md border"
             onChange={handleFileChange}
             accept="application/pdf"
           />
         </div>
         <div className="flex items-center">
-          <label htmlFor="text-color" className="mr-2">
+          <label htmlFor="text-color" className="mr-2 font-sans text-lg">
             Text Color:&nbsp;
           </label>
           <input
@@ -93,7 +93,7 @@ const PDFOCR = () => {
           />
         </div>
         <div className="flex items-center">
-          <label htmlFor="background-color" className="mr-2">
+          <label htmlFor="background-color" className="mr-2 font-sans text-lg">
             Background Color:&nbsp;
           </label>
           <input
@@ -105,7 +105,7 @@ const PDFOCR = () => {
           />
         </div>
         <div className="flex items-center">
-          <label htmlFor="font-size" className="mr-2">
+          <label htmlFor="font-size" className="mr-2 font-sans text-lg">
             Font Size:&nbsp;
           </label>
           <input
@@ -120,7 +120,7 @@ const PDFOCR = () => {
           <span className="ml-2">{fontSize}</span>
         </div>
         <div className='flex items-center'>
-            <label htmlFor="line-height-input">
+            <label htmlFor="line-height-input" className="mr-2 font-sans text-lg">
             Line Height:&nbsp;
             </label>
             <input
@@ -138,7 +138,7 @@ const PDFOCR = () => {
           Use this slider to adjust the line height of the converted image text.
         </p>
         <div className="flex items-center">
-          <label htmlFor="font-family" className="mr-2">
+          <label htmlFor="font-family" className="mr-2 font-sans text-lg">
             Font Family:&nbsp;
           </label>
           <select
