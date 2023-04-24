@@ -62,48 +62,69 @@ const PDFOCR = () => {
 
   return (
     <div>
-      <form>
-        <label>
-          Upload Image:&nbsp;
-          {/* <input type="file" onChange={handleImageChange} />
-           */}
-          <input type="file" onChange={handleFileChange} />
-        </label>
-        <br />
-        <div></div>
-        <label>
-          Text Color:&nbsp;
+      <h3 id="pdf-ocr-heading">PDF OCR</h3>
+      <form className="space-y-4">
+        <div className="flex items-center">
+          <label htmlFor="pdf-upload" className="mr-2">
+            Upload PDF:&nbsp;
+          </label>
           <input
+            id="pdf-upload"
+            type="file"
+            className="rounded-md"
+            onChange={handleFileChange}
+            accept="application/pdf"
+          />
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="text-color" className="mr-2">
+            Text Color:&nbsp;
+          </label>
+          <input
+            id="text-color"
             type="color"
             value={textColor}
             onChange={handleTextColorChange}
+            className="rounded-md"
           />
-        </label>
-        <br />
-        <label>
-          Background Color:&nbsp;
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="background-color" className="mr-2">
+            Background Color:&nbsp;
+          </label>
           <input
+            id="background-color"
             type="color"
             value={backgroundColor}
             onChange={handleBackgroundColorChange}
+            className="rounded-md"
           />
-        </label>
-        <br />
-        <label>
-          Font Size:&nbsp;
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="font-size" className="mr-2">
+            Font Size:&nbsp;
+          </label>
           <input
+            id="font-size"
             type="range"
             min="10"
             max="28"
             value={fontSize}
             onChange={handleFontSizeChange}
+            className="rounded-md"
           />
-          {fontSize}
-        </label>
-        <br />
-        <label>
-          Font Family:&nbsp;
-          <select value={fontFamily} onChange={handleFontFamilyChange}>
+          <span className="ml-2">{fontSize}</span>
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="font-family" className="mr-2">
+            Font Family:&nbsp;
+          </label>
+          <select
+            id="font-family"
+            value={fontFamily}
+            onChange={handleFontFamilyChange}
+            className="rounded-md"
+          >
             {/* TODO: add dyslexia fonts */}
             <option value="Arial">Arial</option>
             <option value="Sans-Serif">Sans Serif</option>
@@ -111,31 +132,38 @@ const PDFOCR = () => {
             <option value="Lexend">Lexend</option>
             <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
           </select>
-        </label>
-        <br />
-        {/* TODO: fix so that pdf work too */}
-        <button type="button" onClick={handleOcrButtonClick}>
+        </div>
+        <button
+          type="button"
+          onClick={handleOcrButtonClick}
+          className="py-2 px-4 bg-[#000000] text-white font-semibold rounded-md"
+        >
           Change PDF to Text
         </button>
       </form>
-
-      <div className="ocr-text-container">
+  
+      <div>
         {pdfText && (
           <div
-            className="ocr-text"
+            className={`ocr-text p-4 my-6 border-2 border-gray-200 rounded-md shadow-lg
+              ${textColor === '#ffffff' ? 'bg-gray-800' : 'bg-white'}`}
             style={{
               color: textColor,
               backgroundColor: backgroundColor,
               fontSize: `${fontSize}px`,
               fontFamily: fontFamily,
             }}
+            role="textbox"
+            tabIndex="0"
+            aria-label="PDF converted text"
+            aria-live="polite"
           >
             {pdfText}
           </div>
         )}
       </div>
     </div>
-  );
+  );  
 };
 
 export default PDFOCR;

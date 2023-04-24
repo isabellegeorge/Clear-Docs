@@ -70,59 +70,118 @@ function ImageOCR() {
 
   return (
     <div>
-      <div>
-
-      </div>
-      <form>
-        <label>
-          Upload Image:&nbsp;
-          <input type="file" onChange={handleImageChange} />
-        </label>
-        <br />
-        <div>
+      <h3 id="image-ocr-heading">Image OCR</h3>
+      <form className="space-y-4">
+        <div className="flex items-center">
+          <label htmlFor="image-upload-input" className="mr-2">
+            Upload Image:&nbsp;
+          </label>
+          <input
+            type="file"
+            id="image-upload-input"
+            className="rounded-md"
+            onChange={handleImageChange}
+            accept="image/*"
+          />
         </div>
-        <label>
-          Text Color:&nbsp;
-          <input type="color" value={textColor} onChange={handleTextColorChange} />
-        </label>
-        <br />
-        <label>
-          Background Color:&nbsp;
-          <input type="color" value={backgroundColor} onChange={handleBackgroundColorChange} />
-        </label>
-        <br />
-        <label>
-          Font Size:&nbsp;
-          <input type="range" min="10" max="28" value={fontSize} onChange={handleFontSizeChange} />
-          {fontSize}
-        </label>
-        <br />
-        <label>
-          Font Family:&nbsp;
-          <select value={fontFamily} onChange={handleFontFamilyChange}>
-            {/* TODO: add dyslexia fonts */}
+        <div className="flex items-center">
+          <label htmlFor="text-color-input" className="mr-2">
+            Text Color:&nbsp;
+          </label>
+          <input
+            type="color"
+            id="text-color-input"
+            value={textColor}
+            onChange={handleTextColorChange}
+            className="rounded-md"
+            aria-describedby="text-color-description"
+          />
+        </div>
+        <p id="text-color-description" className="sr-only">Use this color picker to choose the text color for the converted image text.</p>
+        <div className="flex items-center">
+          <label htmlFor="background-color-input" className="mr-2">
+            Background Color:&nbsp;
+          </label>
+          <input
+            type="color"
+            id="background-color-input"
+            value={backgroundColor}
+            onChange={handleBackgroundColorChange}
+            className="rounded-md"
+            aria-describedby="background-color-description"
+          />
+        </div>
+        <p id="background-color-description" className="sr-only">Use this color picker to choose the background color for the converted image text.</p>
+        <div className="flex items-center">
+          <label htmlFor="font-size-input" className="mr-2">
+            Font Size:&nbsp;
+          </label>
+          <input
+            type="range"
+            id="font-size-input"
+            min="10"
+            max="28"
+            value={fontSize}
+            onChange={handleFontSizeChange}
+            className="rounded-md"
+            aria-describedby="font-size-description"
+          />
+          <span className="ml-2">{fontSize}</span>
+        </div>
+        <p id="font-size-description" className="sr-only">Use this slider to adjust the font size of the converted image text.</p>
+        <div className="flex items-center">
+          <label htmlFor="font-family-select" className="mr-2">
+            Font Family:&nbsp;
+          </label>
+          <select
+            id="font-family-select"
+            value={fontFamily}
+            onChange={handleFontFamilyChange}
+            className="rounded-md"
+            aria-describedby="font-family-description"
+          >
             <option value="Arial">Arial</option>
-            <option value="Sans-Serif">Sans Serif</option>
+            <option value="sans-serif">Sans Serif</option>
             <option value="Times New Roman">Times New Roman</option>
             <option value="Lexend">Lexend</option>
             <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
           </select>
-        </label>
-        <br />
-        {/* TODO: fix so that pdf work too */}
-        <button type="button" onClick={handleOcrButtonClick}>
+        </div>
+        <p id="font-family-description" className="sr-only">Use this dropdown to choose the font family for the converted image text.</p>
+        <button
+          type="button"
+          onClick={handleOcrButtonClick}
+          className="py-2 px-4 bg-[#000000] text-white font-semibold rounded-md"
+          aria-describedby="ocr-button-description"
+        >
           Change Image to Text
         </button>
+        <p id="ocr-button-description" className="sr-only">Press this button to convert the uploaded image to text.</p>
       </form>
-      <br />
-      {ocrOutput && (
-        <div style={{ color: textColor, backgroundColor, fontSize: `${fontSize}px`, fontFamily }}>
-          {ocrOutput}
-        </div>
-      )}
 
+      <div>
+        {ocrOutput && (
+          <div
+            className={`ocr-text p-4 my-6 border-2 border-gray-200 rounded-md shadow-lg
+              ${textColor === '#ffffff' ? 'bg-gray-800' : 'bg-white'}`}
+            style={{
+              color: textColor,
+              backgroundColor: backgroundColor,
+              fontSize: `${fontSize}px`,
+              fontFamily: fontFamily,
+            }}
+            role="textbox"
+            tabIndex="0"
+            aria-label="Image converted text"
+            aria-live="polite"
+          >
+            {ocrOutput}
+          </div>
+        )}
+      </div>
     </div>
   );
+  
 }
 
 export default ImageOCR;

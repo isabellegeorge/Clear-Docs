@@ -54,5 +54,8 @@
   },
   "browser": {
     "child_process": false
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
   }
 }
