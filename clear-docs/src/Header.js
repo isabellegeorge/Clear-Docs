@@ -14,7 +14,7 @@ function Header() {
         </div>
         <ul className='flex flex-col md:flex-row md:items-end list-none gap-10 text-lg'>
           <li>
-            <Link to="/" style={{ textDecoration: 'none', color: '#000000' }}>Home</Link>
+            <Link to="/home" style={{ textDecoration: 'none', color: '#000000' }}>Home</Link>
           </li>
           <li>
             <Link to="/about" style={{ textDecoration: 'none', color: '#000000' }}>About</Link>
