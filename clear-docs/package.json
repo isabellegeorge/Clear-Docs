@@ -2,7 +2,7 @@
   "name": "clear-docs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://isabellegeorge.github.io/Clear-Docs.github.io/clear-docs",
+  "homepage": "https://isabellegeorge.github.io/Clear-Docs.github.io",
   "dependencies": {
     "@fontsource/atkinson-hyperlegible": "^4.5.11",
     "@testing-library/jest-dom": "^5.16.5",
