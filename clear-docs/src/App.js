@@ -14,7 +14,7 @@ function App() {
 
         <Header />
         <Routes>
-          <Route path="/Clear-Docs.github.io/home" element={<Home />} />
+          <Route path="/Clear-Docs.github.io/" element={<Home />} />
           <Route path="/Clear-Docs.github.io/image-pdf-ocr" element={<ImagePdfOCR />} />
           <Route path="/Clear-Docs.github.io/about" element={<About />} />
 
@@ -26,3 +26,8 @@ function App() {
 }
 
 export default App;
+
+// git add .
+// git commit -m "setup gh-pages"
+// git push --force
+// npm run deploy
