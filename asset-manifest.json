@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Clear-Docs.github.io/clear-docs/static/css/main.0f4a3495.css",
-    "main.js": "/Clear-Docs.github.io/clear-docs/static/js/main.6ae360df.js",
-    "static/js/787.4cb6194c.chunk.js": "/Clear-Docs.github.io/clear-docs/static/js/787.4cb6194c.chunk.js",
-    "static/media/inclusion.png": "/Clear-Docs.github.io/clear-docs/static/media/inclusion.2c221356f08f3f749226.png",
-    "static/media/logo.png": "/Clear-Docs.github.io/clear-docs/static/media/logo.c3a8262f2ad2f124dc72.png",
-    "static/media/full-logo.png": "/Clear-Docs.github.io/clear-docs/static/media/full-logo.ff80443fe999ee8c1b4c.png",
-    "index.html": "/Clear-Docs.github.io/clear-docs/index.html",
-    "main.0f4a3495.css.map": "/Clear-Docs.github.io/clear-docs/static/css/main.0f4a3495.css.map",
-    "main.6ae360df.js.map": "/Clear-Docs.github.io/clear-docs/static/js/main.6ae360df.js.map",
-    "787.4cb6194c.chunk.js.map": "/Clear-Docs.github.io/clear-docs/static/js/787.4cb6194c.chunk.js.map"
+    "main.css": "/Clear-Docs.github.io/static/css/main.0f4a3495.css",
+    "main.js": "/Clear-Docs.github.io/static/js/main.14233eef.js",
+    "static/js/787.4cb6194c.chunk.js": "/Clear-Docs.github.io/static/js/787.4cb6194c.chunk.js",
+    "static/media/inclusion.png": "/Clear-Docs.github.io/static/media/inclusion.2c221356f08f3f749226.png",
+    "static/media/logo.png": "/Clear-Docs.github.io/static/media/logo.c3a8262f2ad2f124dc72.png",
+    "static/media/full-logo.png": "/Clear-Docs.github.io/static/media/full-logo.ff80443fe999ee8c1b4c.png",
+    "index.html": "/Clear-Docs.github.io/index.html",
+    "main.0f4a3495.css.map": "/Clear-Docs.github.io/static/css/main.0f4a3495.css.map",
+    "main.14233eef.js.map": "/Clear-Docs.github.io/static/js/main.14233eef.js.map",
+    "787.4cb6194c.chunk.js.map": "/Clear-Docs.github.io/static/js/787.4cb6194c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0f4a3495.css",
-    "static/js/main.6ae360df.js"
+    "static/js/main.14233eef.js"
   ]
 }
