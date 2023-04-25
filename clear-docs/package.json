@@ -57,6 +57,6 @@
     "child_process": false
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.1"
-  }
+    "gh-pages": "^4.0.0"	
+    }
 }
