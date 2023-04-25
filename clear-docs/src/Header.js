@@ -14,13 +14,13 @@ function Header() {
         </div>
         <ul className='flex flex-col md:flex-row md:items-end list-none gap-10 text-lg'>
           <li>
-            <Link to="/home" style={{ textDecoration: 'none', color: '#000000' }}>Home</Link>
+            <Link to="/Clear-Docs.github.io/" style={{ textDecoration: 'none', color: '#000000' }}>Home</Link>
           </li>
           <li>
-            <Link to="/about" style={{ textDecoration: 'none', color: '#000000' }}>About</Link>
+            <Link to="/Clear-Docs.github.io/about" style={{ textDecoration: 'none', color: '#000000' }}>About</Link>
           </li>
           <li>
-            <Link to="/image-pdf-ocr" style={{ textDecoration: 'none', color: '#000000' }}>Get Started</Link>
+            <Link to="/Clear-Docs.github.io/image-pdf-ocr" style={{ textDecoration: 'none', color: '#000000' }}>Get Started</Link>
           </li>
         </ul>
       </nav>

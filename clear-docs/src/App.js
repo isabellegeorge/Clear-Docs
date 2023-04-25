@@ -14,9 +14,9 @@ function App() {
 
         <Header />
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/image-pdf-ocr" element={<ImagePdfOCR />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/Clear-Docs.github.io/home" element={<Home />} />
+          <Route path="/Clear-Docs.github.io/image-pdf-ocr" element={<ImagePdfOCR />} />
+          <Route path="/Clear-Docs.github.io/about" element={<About />} />
 
         </Routes>
         

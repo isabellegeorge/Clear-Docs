@@ -7,7 +7,7 @@ function Home(props) {
   const navigate = useNavigate();
 
   function goStart() {
-    navigate("/image-pdf-ocr");
+    navigate("/Clear-Docs.github.io/image-pdf-ocr");
   }
   return (
     <div className="flex w-screen justify-center items-center h-auto">
