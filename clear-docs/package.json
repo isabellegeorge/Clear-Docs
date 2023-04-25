@@ -29,7 +29,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -b dev-isabelle -d build"
   },
   "eslintConfig": {
