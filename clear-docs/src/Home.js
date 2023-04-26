@@ -12,7 +12,8 @@ function Home(props) {
   return (
     <div className="flex w-screen justify-center items-center h-auto">
       <div className='flex flex-col gap-4 p-8'>
-        <img className="h-auto w-80" style={{marginLeft:450}}src={fulllogo} alt="Logo with the words 'Clear Docs'" />
+      <br/>
+        <img className="h-auto w-80" src={fulllogo} alt="Logo with the words 'Clear Docs'" />
         <h3 className="text-lg font-bold mt-8" id="get-started-heading">
           Get Started with ClearDocs!
         </h3>
