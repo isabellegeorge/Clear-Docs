@@ -26,8 +26,9 @@ function App() {
 }
 
 export default App;
-
-// git add .
-// git commit -m "setup gh-pages"
-// git push --force
-// npm run deploy
+/*
+git add .
+git commit -m "setup gh-pages"
+git push --force
+npm run deploy
+*/
