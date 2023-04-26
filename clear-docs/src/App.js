@@ -27,6 +27,7 @@ function App() {
 
 export default App;
 /*
+
 git add .
 git commit -m "setup gh-pages"
 git push --force
