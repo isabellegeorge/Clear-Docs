@@ -28,7 +28,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 const PDFOCR = () => {
   const [pdfText, setPdfText] = useState("");
   const [file, setFile] = useState(null);
-  const [textColor, setTextColor] = useState("black");
+  const [textColor, setTextColor] = useState(colors[0]);
   const [backgroundColor, setBackgroundColor] = useState("white");
   const [fontSize, setFontSize] = useState("16px");
   const [lineHeight, setLineHeight] = useState("1");
