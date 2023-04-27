@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Clear-Docs.github.io/static/css/main.a931c9cf.css",
-    "main.js": "/Clear-Docs.github.io/static/js/main.d717d269.js",
+    "main.js": "/Clear-Docs.github.io/static/js/main.d0b32f15.js",
     "static/js/787.38c71c92.chunk.js": "/Clear-Docs.github.io/static/js/787.38c71c92.chunk.js",
     "static/media/inclusion.png": "/Clear-Docs.github.io/static/media/inclusion.2c221356f08f3f749226.png",
     "static/media/logo.png": "/Clear-Docs.github.io/static/media/logo.c3a8262f2ad2f124dc72.png",
     "static/media/full-logo.png": "/Clear-Docs.github.io/static/media/full-logo.ff80443fe999ee8c1b4c.png",
     "index.html": "/Clear-Docs.github.io/index.html",
     "main.a931c9cf.css.map": "/Clear-Docs.github.io/static/css/main.a931c9cf.css.map",
-    "main.d717d269.js.map": "/Clear-Docs.github.io/static/js/main.d717d269.js.map",
+    "main.d0b32f15.js.map": "/Clear-Docs.github.io/static/js/main.d0b32f15.js.map",
     "787.38c71c92.chunk.js.map": "/Clear-Docs.github.io/static/js/787.38c71c92.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a931c9cf.css",
-    "static/js/main.d717d269.js"
+    "static/js/main.d0b32f15.js"
   ]
 }
