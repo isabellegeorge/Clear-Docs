@@ -24,7 +24,7 @@ function Header() {
             <Link to="/Clear-Docs.github.io/about" style={{ textDecoration: 'none', color: '#000000' }}>About</Link>
           </li>
           <li>
-            <Link to="/Clear-Docs.github.io//image-pdf-ocr" style={{ textDecoration: 'none', color: '#000000' }}>Get Started</Link>
+            <Link to="/Clear-Docs.github.io/image-pdf-ocr" style={{ textDecoration: 'none', color: '#000000' }}>Get Started</Link>
           </li>
         </ul>
       </nav>
