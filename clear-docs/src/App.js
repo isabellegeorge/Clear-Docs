@@ -2,7 +2,10 @@
 import App2 from './App2';
 
 function App(){
-  return <App2/>;
+  return (<div>
+  h
+<App2/>
+  </div>);
 }
 export default App;
 /*
