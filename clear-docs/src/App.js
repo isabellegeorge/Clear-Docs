@@ -19,9 +19,9 @@ class App2 extends Component {
 
         <Header />
         <Routes>
-          <Route path="" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/image-pdf-ocr" element={<ImagePdfOCR />} />
+          <Route path="/Clear-Docs.github.io/" element={<Home />} />
+          <Route path="/Clear-Docs.github.io/about" element={<About />} />
+          <Route path="/Clear-Docs.github.io/image-pdf-ocr" element={<ImagePdfOCR />} />
 
         </Routes>
         
