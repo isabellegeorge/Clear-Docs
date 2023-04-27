@@ -2,33 +2,13 @@ import React, { useState } from "react";
 import { pdfjs } from "react-pdf";
 import "./../App.css";
 import { ColorPicker } from 'react-rainbow-components';
-const colors = [
-  '#F44334', // red
-  '#E91E61', // pink
-  '#9C27C0', // purple
-  '#673AD7', // dark purple
-  '#3F51E5', // indigo
-  '#2196F3', // blue
-  '#03A9F4', // light blue
-  '#00BCD4', // cyan
-  '#009688', // teal
-  '#4CAF50', // green
-  '#8BC03A', // light green
-  '#CDDC39', // lime
-  '#FFEB3B', // yellow
-  '#FFC107', // gold
-  '#FF9500', // orange
-  '#FF5722', // deep orange
-  '#795548', // brown
-  '#9E9E9E', // grey
-  '#607D8B', // dark grey
-];
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const PDFOCR = () => {
   const [pdfText, setPdfText] = useState("");
   const [file, setFile] = useState(null);
-  const [textColor, setTextColor] = useState(colors[0]);
+  const [textColor, setTextColor] = useState('black');
   const [backgroundColor, setBackgroundColor] = useState("white");
   const [fontSize, setFontSize] = useState("16px");
   const [lineHeight, setLineHeight] = useState("1");
@@ -61,16 +41,16 @@ const PDFOCR = () => {
 
   const extractPdfText = async (pdf) => {
     let pdfText = "";
-  
+
     for (let i = 1; i <= pdf.numPages; i++) {
       const page = await pdf.getPage(i);
       const content = await page.getTextContent();
       pdfText += content.items.map((item) => item.str).join(" ") + "\n";
     }
-  
+
     return pdfText;
   };
-  
+
 
   const handleOcrButtonClick = async () => {
     if (file) {
@@ -84,7 +64,7 @@ const PDFOCR = () => {
       setPdfText(pdfText);
       console.log(pdfText);
     }
-    else{
+    else {
       alert("Error: Please select a PDF.");
 
     }
@@ -92,7 +72,7 @@ const PDFOCR = () => {
 
   return (
     <div className="flex flex-col w-auto">
-      <h3 id="pdf-ocr-heading">PDF OCR</h3>
+      {/* <h3 id="pdf-ocr-heading">PDF OCR</h3> */}
       <form className="space-y-4">
         <div className="flex items-center">
           <label htmlFor="pdf-upload" className="mr-2 font-sans text-lg">
@@ -105,7 +85,7 @@ const PDFOCR = () => {
             onChange={handleFileChange}
             accept="application/pdf"
           />
-            <style>
+          <style>
             {`
           .palette-container {
             text-align: center;
@@ -122,6 +102,12 @@ const PDFOCR = () => {
             width: 200px;
             margin: auto;
           }
+          .rainbow-color-picker_gradient {
+  display: none;
+}
+.rainbow-color-picker_lines {
+  border: none;
+}
         `}
           </style>
         </div>
@@ -150,8 +136,7 @@ const PDFOCR = () => {
             onChange={handleBackgroundColorChange}
             className="rounded-md"
           /> */}
-          <ColorPicker value={backgroundColor} onChange={setBackgroundColor} />
-
+          <ColorPicker hideGradient value={backgroundColor} onChange={setBackgroundColor} />
         </div>
         <div className="flex items-center">
           <label htmlFor="font-size" className="mr-2 font-sans text-lg">
@@ -169,19 +154,19 @@ const PDFOCR = () => {
           <span className="ml-2">{fontSize}</span>
         </div>
         <div className='flex items-center'>
-            <label htmlFor="line-height-input" className="mr-2 font-sans text-lg">
+          <label htmlFor="line-height-input" className="mr-2 font-sans text-lg">
             Line Height:&nbsp;
-            </label>
-            <input
-              type="range"
-              id="line-height-input"
-              min="1"
-              max="4"
-              value={lineHeight}
-              onChange={handleLineHeightChange}
-              aria-describedby="line-height-description"
-            />
-            <span className="ml-2">{lineHeight}</span>
+          </label>
+          <input
+            type="range"
+            id="line-height-input"
+            min="1"
+            max="4"
+            value={lineHeight}
+            onChange={handleLineHeightChange}
+            aria-describedby="line-height-description"
+          />
+          <span className="ml-2">{lineHeight}</span>
         </div>
         <p id="line-height-description" className="sr-only">
           Use this slider to adjust the line height of the converted image text.
@@ -203,15 +188,18 @@ const PDFOCR = () => {
             <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
           </select>
         </div>
+        
         <button
           type="button"
           onClick={handleOcrButtonClick}
-          className="py-2 px-4 bg-[#000000] text-white font-semibold rounded-md"
+          className="py-5 px-25 bg-[#000000] text-white font-semibold rounded-md"
+          aria-describedby="ocr-button-description"
         >
+   
           Change PDF to Text
         </button>
       </form>
-  
+
       <div>
         {pdfText && (
           <div
@@ -234,7 +222,8 @@ const PDFOCR = () => {
         )}
       </div>
     </div>
-  );  
+
+  );
 };
 
 export default PDFOCR;

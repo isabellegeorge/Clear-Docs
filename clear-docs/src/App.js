@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './Home';
@@ -6,7 +6,12 @@ import About from './About';
 import ImagePdfOCR from './front-end/ImagePdfOCR';
 import Header from './Header';
 
-function App() {
+class App extends Component {
+  componentDidMount() {
+    const pickerContainer = document.querySelector('.sc-ewnqHT')
+  pickerContainer.remove();
+  }
+  render(){
   return (
 
 <Router>
@@ -23,6 +28,7 @@ function App() {
       </div>
     </Router>
   );
+  }
 }
 
 export default App;

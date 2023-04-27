@@ -1,32 +1,11 @@
 import React, { useState } from "react";
 import Tesseract from "tesseract.js";
 import { ColorPicker } from 'react-rainbow-components';
-const colors = [
-  '#F44334', // red
-  '#E91E61', // pink
-  '#9C27C0', // purple
-  '#673AD7', // dark purple
-  '#3F51E5', // indigo
-  '#2196F3', // blue
-  '#03A9F4', // light blue
-  '#00BCD4', // cyan
-  '#009688', // teal
-  '#4CAF50', // green
-  '#8BC03A', // light green
-  '#CDDC39', // lime
-  '#FFEB3B', // yellow
-  '#FFC107', // gold
-  '#FF9500', // orange
-  '#FF5722', // deep orange
-  '#795548', // brown
-  '#9E9E9E', // grey
-  '#607D8B', // dark grey
-];
 function ImageOCR(props) {
   /* TODO: Choose what we want the user to be able to set */
   /* TODO: add spacing as an option */
   const [image, setImage] = useState(null);
-  const [textColor, setTextColor] = useState(colors[0]);
+  const [textColor, setTextColor] = useState('black');
   const [backgroundColor, setBackgroundColor] = useState("white");
   const [fontSize, setFontSize] = useState("16px");
   const [fontFamily, setFontFamily] = useState("Arial"); // TODO: change if we want to
@@ -97,7 +76,7 @@ function ImageOCR(props) {
 
   return (
     <div>
-      <h3 id="image-ocr-heading">Image OCR</h3>
+      {/* <h3 id="image-ocr-heading" >Image OCR</h3> */}
       <form className="space-y-4">
         <div className="flex items-center">
           <label htmlFor="image-upload-input" className="mr-2 font-sans text-lg">
