@@ -53,7 +53,12 @@ const PDFOCR = () => {
 
 
   const handleOcrButtonClick = async () => {
-    if (file) {
+    // const file = event.target.files[0];
+    // setFile(file);
+    const fileType = file.type.split("/").pop(); // "some-page"
+    console.log(fileType);
+    if (fileType == "pdf") {
+    // if (file) {
       const pdf = await pdfjs.getDocument({
         url: URL.createObjectURL(file),
         cMapUrl: "cmaps/",
